@@ -1,3 +1,11 @@
+URL = VERBO + PATH
+
+Path = protocolo + host + ruta
+
+http://localhost:3000/sessions/new 
+
+
+
 get '/' do
  # Homeage
  # Por hacer : Mostrar todo los usuario si se esta logueado
@@ -7,11 +15,12 @@ end
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
-  # render sign-in page 
+  # render sign-in page
 end
 
 post '/sessions' do
-  # sign-in
+  session[:user_id] = user.id
+  red
 end
 
 delete '/sessions/:id' do

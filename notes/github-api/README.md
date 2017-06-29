@@ -1,5 +1,11 @@
 # Consume an API
 
+// Endpoints RESTfull
+
+Service providers 
+post /tweets
+get /tweets
+
 ## Competencias de aprendizaje
 - consumir una API, de forma limpia, modular y extendible.
 

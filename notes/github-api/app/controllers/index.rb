@@ -1,44 +1,78 @@
 get '/' do
-  # api = Github::Client.new
-  headers = {"User-Agent" => 'Cool as fuck'}
-  @emoji_response = HTTParty.get('https://api.github.com/emojis', headers: headers)
+  @emojis = HTTParty.get("https://api.github.com/emojis")
   erb :index
 end
 
-
+# new
 get '/gists/new' do
-  erb :"new_gist"
+  erb :new
 end
 
-get '/gists' do
-  @gist = JSON.parse(params[:gist])
-  p @gist
+# Create gist
+post '/gists' do
+  gist = {
+    description: params[:gist][:description],
+    public: true,
+    files: {
+      "file1.txt" => {
+        content: params[:gist][:content]
+      }
+    }
+  }
+  created_gist = HTTParty.post("https://api.github.com/gists", {
+    headers: {
+      'User-Agent': 'Pepito',
+      "Authorization": "token 88dea235caf220bad487f8340f36c4f9a0ab50cd"
+    },
+    body: gist.to_json
+  })
+  @url = created_gist.parsed_response["html_url"]
   erb :show
 end
-
 
 post '/gists' do
   api = Github::Client.new
-  gist = api.create_gist(params[:post])
+  gist = api.create_gist(params[:gist])
   @url = gist["html_url"]
-  # post = {
-  #   description: "the description for this gist",
-  #   public: true,
-  #   files: {
-  #     "file1.txt" => {
-  #       content: "String file contents"
-  #     }
-  #   }
-  # }
-  # headers = {
-  #   "User-Agent" => 'Cool as fuck'
-  #   # "Authorization" => "token a8df8ddf0c3af711f60a5615a1d0651ca68a4ffc"
-  # }
-  # @gist = HTTParty.post('https://api.github.com/gists', {headers: headers, body: post.to_json})
-  # content_type :json
-  # {response: @gist}.to_json
   erb :show
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# get '/' do
+#   # api = Github::Client.new
+#   headers = {"User-Agent" => 'Cool as fuck'}
+#   @emoji_response = HTTParty.get('https://api.github.com/emojis', headers: headers)
+#   erb :index
+# end
+#
+#
+# get '/gists/new' do
+#   erb :"new_gist"
+# end
+#
+# get '/gists' do
+#   @gist = JSON.parse(params[:gist])
+#   p @gist
+#   erb :show
+# end
+#
+#
 
 
 # parsed_response={

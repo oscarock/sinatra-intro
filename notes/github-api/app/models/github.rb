@@ -9,7 +9,6 @@ module Github
       @token = token
       @headers = {
         "User-Agent" => 'Make it Real'
-        # "Authorization" => "token a8df8ddf0c3af711f60a5615a1d0651ca68a4ffc"
       }
     end
 
@@ -20,20 +19,20 @@ module Github
       return response.body
     end
 
-    def create_gist(post)
-      post = {
-        description: post["description"],
+    def create_gist(gist)
+      gist = {
+        description: gist["description"],
         public: true,
         files: {
           "file1.txt" => {
-            content: post["content"]
+            content: gist["content"]
           }
         }
       }
 
       gist = self.class.post('/gists', {
         headers: @headers,
-        body: post.to_json
+        body: gist.to_json
       })
       gist.parsed_response
     end

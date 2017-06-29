@@ -8,7 +8,7 @@ Vamos a usar Sinatra, para crear una simple aplicación con una sola tabla para 
 
 ### Paso 0: Rutas RESTful
 
-Tu tarea es implementar las 7 [routas RESTfull](http://guides.rubyonrails.org/routing.html). Modifica el esqueleto para lograr la siguiente funcionalidad:
+Tu tarea es implementar las 7 [rutas RESTfull](http://guides.rubyonrails.org/routing.html). Modifica el esqueleto para lograr la siguiente funcionalidad:
 
 1. Un usuario puede crear una nota.
 2. Un usuario puede leer todas las notas que ha creado

@@ -20,7 +20,6 @@ Tu tarea es implementar las 7 [rutas RESTfull](http://guides.rubyonrails.org/rou
 
 La tabla de `notes` debe tener los campos `title` y `content`.
 
-
 ## Recursos
 
 * [Sinatra Crud Tutorial ](http://net.tutsplus.com/tutorials/ruby/singing-with-sinatra/)

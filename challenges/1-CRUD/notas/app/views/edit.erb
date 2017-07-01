@@ -1,0 +1,10 @@
+<form action="/notes/<%= @notes.id %>" method="POST">
+	<input type="hidden" name='_method' value="PATCH">
+	<label for="name">Nombre</label>
+	<input type="input" name="name" value="<%= @notes.name %>">
+	<br>
+	<label for="name">Descripcion</label>
+	<textarea name="description"><%= @notes.description %></textarea>
+	<br>
+	<input type="submit" name="Editar Nota">
+</form>

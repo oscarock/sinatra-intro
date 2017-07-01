@@ -1,0 +1,27 @@
+<h1>Lista de Notas</h1>
+
+<a href="/notes/new">Crea una Nota</a>
+
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Nombre</th>
+		<th>Descripcion</th>
+		<th>Acciones</th>
+	</tr>
+	<% @notes.each do |note| %>
+	<tr>
+		<td><%= note.id %></td>
+    	<td><%= note.name %></td>
+    	<td><%= note.description %></td>
+    	<td>
+    		<a href="/notes/<%= note.id %>/edit">Editar</a> ||
+    		<a href="/notes/<%= note.id %>/delete">Eliminar</a>
+		</td>
+	<% end %>
+  	</tr>	
+</table> 
+
+
+
+ 

@@ -1,5 +1,5 @@
 require 'faker'
 
 10.times do |i|
-  Cat.create(name: Faker::Name.name, description: rand(9) + 1)
+  Notes.create(name: Faker::Job.title, description: Faker::Team.creature)
 end

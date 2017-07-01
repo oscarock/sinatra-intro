@@ -1,0 +1,18 @@
+<form action="/notes" method="POST">
+	<label for="name">Nombre</label>
+	<input type="input" name="name">
+	<br>
+	<label for="name">Descripcion</label>
+	<textarea name="description"></textarea>
+	<br>
+	<input type="submit" name="Crear Nota">
+</form>
+
+<% if @errors %>
+	<h1>Errores en el Formulario:</h1>
+  	<ul>
+    	<% @errors.each do |error| %>
+      		<li><%= error %></li>
+    	<% end %>
+  	</ul>
+<% end %>
